@@ -1,169 +1,340 @@
-/*
-  Catálogo editable de TecnoServWJ para tienda tipo retail.
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TecnoServWJ | Servicio técnico en Trujillo</title>
+  <meta name="description" content="TecnoServWJ brinda mantenimiento preventivo, diagnóstico, instalación de Windows, backup, upgrades de SSD/RAM, ensamblaje de PC y soporte técnico en Trujillo y La Esperanza." />
+  <meta name="theme-color" content="#0b0b0f" />
 
-  Edita productos aquí para cambiar:
-  - precio, descuento, stock, fotos, garantía, métodos de pago, descripción y ficha técnica.
-  - marca, condición, rating, reseñas, destacados y etiquetas.
+  <meta property="og:title" content="TecnoServWJ | Servicio técnico en Trujillo" />
+  <meta property="og:description" content="Cuidamos tu tecnología como parte de tu trabajo. Mantenimiento, diagnóstico, upgrades, instalación de Windows, backup y soporte técnico." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/logo-fondo-negro.png" />
 
-  Para usar fotos reales:
-  1. Sube la imagen a assets/productos/
-  2. Cambia imagen y galeria con la ruta correspondiente.
-*/
+  <link rel="icon" href="assets/favicon.png" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar container">
+      <a class="brand" href="#inicio" aria-label="Inicio TecnoServWJ">
+        <img src="assets/logo-fondo-negro.png" alt="Logo TecnoServWJ" class="brand-logo" />
+        <span class="brand-text">TecnoServWJ</span>
+      </a>
 
-const productosTecnoServ = [
-  {
-    id: "laptop-asus-gaming-v16-rtx3050",
-    categoria: "laptops",
-    marca: "ASUS",
-    nombre: "Laptop Asus Gaming V16 RTX 3050",
-    modelo: "V3607VJ-RP067W",
-    estado: "Nuevo",
-    etiqueta: "Oferta gamer",
-    destacado: true,
-    precio: 3449,
-    precioAnterior: 3999,
-    moneda: "S/",
-    stock: 1,
-    rating: 4.8,
-    totalResenas: 12,
-    envio: "Delivery disponible en Trujillo y La Esperanza",
-    garantia: "Garantía según proveedor + revisión TecnoServWJ antes de entrega",
-    imagen: "assets/productos/asus-v16-rtx3050-principal.svg",
-    galeria: [
-      "assets/productos/asus-v16-rtx3050-principal.svg",
-      "assets/productos/asus-v16-rtx3050-detalle.svg",
-      "assets/productos/asus-v16-rtx3050-teclado.svg"
-    ],
-    descripcion: "Laptop gaming de 16 pulgadas recomendada para estudios, trabajo, multitarea, edición ligera, diseño, programación y juegos en configuración media.",
-    especificaciones: {
-      Procesador: "Intel Core 5 210H, 8 núcleos / 12 hilos, hasta 4.8 GHz",
-      Gráficos: "NVIDIA GeForce RTX 3050 Laptop GPU 6GB",
-      RAM: "8 GB DDR5",
-      Almacenamiento: "512 GB SSD M.2 NVMe PCIe 4.0",
-      Pantalla: "16 pulgadas WUXGA 1920 x 1200, antirreflejo, 144 Hz",
-      Sistema: "Windows 11 Home",
-      Cámara: "FHD 1080p con obturador de privacidad",
-      Conectividad: "Wi-Fi 6 y Bluetooth",
-      Teclado: "Español, retroiluminado, con teclado numérico",
-      Color: "Negro",
-      Condición: "Nuevo"
-    },
-    incluye: [
-      "Laptop Asus Gaming V16",
-      "Cargador original",
-      "Windows 11 Home",
-      "Revisión técnica antes de entrega",
-      "Asesoría básica de uso y cuidado",
-      "Configuración inicial según solicitud"
-    ],
-    metodosPago: [
-      "Yape",
-      "Plin",
-      "Transferencia bancaria",
-      "Efectivo contra entrega",
-      "Separación previa coordinación"
-    ],
-    resenas: [
-      {
-        autor: "TecnoServWJ",
-        comentario: "Equipo recomendado para usuarios que desean una laptop moderna con gráfica dedicada para estudio, trabajo y gaming casual."
-      }
-    ]
-  },
-  {
-    id: "laptop-lenovo-ideapad-ryzen5",
-    categoria: "laptops",
-    marca: "Lenovo",
-    nombre: "Lenovo IdeaPad Ryzen 5",
-    modelo: "IdeaPad",
-    estado: "Usado",
-    etiqueta: "Precio especial",
-    destacado: false,
-    precio: 1450,
-    precioAnterior: 1650,
-    moneda: "S/",
-    stock: 1,
-    rating: 4.5,
-    totalResenas: 4,
-    envio: "Entrega coordinada",
-    garantia: "7 días de garantía por funcionamiento",
-    imagen: "assets/productos/lenovo-ideapad-ryzen5.svg",
-    galeria: ["assets/productos/lenovo-ideapad-ryzen5.svg"],
-    descripcion: "Laptop ideal para estudios, oficina, navegación, clases virtuales y tareas diarias. Equipo revisado antes de la entrega.",
-    especificaciones: {
-      Procesador: "AMD Ryzen 5",
-      RAM: "8 GB",
-      Almacenamiento: "SSD 256 GB",
-      Pantalla: "15.6 pulgadas",
-      Sistema: "Windows 11",
-      Estado: "Usado en buen estado"
-    },
-    incluye: ["Cargador", "Windows instalado", "Revisión técnica previa", "Limpieza externa básica"],
-    metodosPago: ["Yape", "Plin", "Transferencia bancaria", "Efectivo contra entrega"],
-    resenas: [{ autor: "Cliente TecnoServWJ", comentario: "Equipo entregado operativo y configurado para uso diario." }]
-  },
-  {
-    id: "laptop-hp-core-i5",
-    categoria: "laptops",
-    marca: "HP",
-    nombre: "HP Intel Core i5",
-    modelo: "HP Core i5",
-    estado: "Usado",
-    etiqueta: "Disponible",
-    destacado: false,
-    precio: 1350,
-    precioAnterior: null,
-    moneda: "S/",
-    stock: 1,
-    rating: 4.4,
-    totalResenas: 3,
-    envio: "Entrega coordinada",
-    garantia: "7 días de garantía por funcionamiento",
-    imagen: "assets/productos/laptop-hp-core-i5.svg",
-    galeria: ["assets/productos/laptop-hp-core-i5.svg"],
-    descripcion: "Laptop recomendada para trabajos de oficina, tareas académicas, videollamadas y uso general.",
-    especificaciones: {
-      Procesador: "Intel Core i5",
-      RAM: "8 GB",
-      Almacenamiento: "SSD 240 GB",
-      Pantalla: "14 pulgadas",
-      Sistema: "Windows 10/11 según compatibilidad",
-      Estado: "Usado operativo"
-    },
-    incluye: ["Cargador", "Configuración inicial", "Prueba de funcionamiento"],
-    metodosPago: ["Yape", "Plin", "Transferencia bancaria", "Efectivo"],
-    resenas: []
-  },
-  {
-    id: "laptop-gamer-consulta",
-    categoria: "laptops",
-    marca: "Varias marcas",
-    nombre: "Laptop gamer bajo pedido",
-    modelo: "Según disponibilidad",
-    estado: "Bajo pedido",
-    etiqueta: "Consulta stock",
-    destacado: false,
-    precio: null,
-    precioAnterior: null,
-    moneda: "S/",
-    stock: 0,
-    rating: 4.7,
-    totalResenas: 6,
-    envio: "Según coordinación",
-    garantia: "Según proveedor o acuerdo de venta",
-    imagen: "assets/productos/laptop-gamer-pedido.svg",
-    galeria: ["assets/productos/laptop-gamer-pedido.svg"],
-    descripcion: "Consulta por laptops gamer según presupuesto, uso requerido y disponibilidad. Se brinda orientación antes de la compra.",
-    especificaciones: {
-      Procesador: "Según disponibilidad",
-      RAM: "Según configuración",
-      Almacenamiento: "SSD recomendado",
-      Pantalla: "Según modelo",
-      Gráficos: "Dedicados según presupuesto",
-      Estado: "Nuevo o usado según consulta"
-    },
-    incluye: ["Asesoría de compra", "Revisión de especificaciones", "Cotización según presupuesto"],
-    metodosPago: ["Yape", "Plin", "Transferencia bancaria", "Pago coordinado"],
-    resenas: []
-  }
-];
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#servicios">Servicios</a>
+        <a href="#promociones">Promociones</a>
+        <a href="tienda.html">Tienda</a>
+        <a href="#trabajos">Trabajos</a>
+        <a href="#faq">Preguntas</a>
+        <a href="#contacto">Contacto</a>
+        <a class="nav-cta" href="https://wa.me/51916074052?text=Hola%20TecnoServWJ%2C%20quiero%20cotizar%20un%20servicio%20t%C3%A9cnico." target="_blank" rel="noopener">Cotizar</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content reveal">
+          <p class="eyebrow">Servicio técnico • Trujillo y La Esperanza</p>
+          <h1>Soluciones tecnológicas confiables para el cuidado, mejora y soporte de tus equipos.</h1>
+          <p class="hero-subtitle">TecnoServWJ brinda mantenimiento preventivo, diagnóstico, instalación de Windows, backup, upgrades de SSD/RAM, ensamblaje de PC y soporte técnico remoto o a domicilio.</p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="https://wa.me/51916074052?text=Hola%20TecnoServWJ%2C%20quiero%20cotizar%20un%20servicio." target="_blank" rel="noopener">Cotizar por WhatsApp</a>
+            <a class="btn btn-secondary" href="#servicios">Ver servicios</a>
+            <a class="btn btn-secondary" href="tienda.html">Ir a la tienda</a>
+          </div>
+
+          <div class="trust-row">
+            <span>Diagnóstico gratis</span>
+            <span>Atención remota</span>
+            <span>Delivery disponible</span>
+          </div>
+        </div>
+
+        <div class="hero-card reveal">
+          <div class="hero-logo-wrap">
+            <img src="assets/logo-fondo-negro.png" alt="TecnoServWJ" class="hero-logo" />
+          </div>
+          <div class="status-card">
+            <span class="status-dot"></span>
+            <div>
+              <strong>Cuidamos tu tecnología como parte de tu trabajo.</strong>
+              <p>Atención técnica ordenada, clara y enfocada en el rendimiento de tus equipos.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section stats-section">
+      <div class="container stats-grid">
+        <div class="stat reveal">
+          <strong>Desde S/ 60</strong>
+          <span>Mantenimiento preventivo</span>
+        </div>
+        <div class="stat reveal">
+          <strong>Gratis</strong>
+          <span>Diagnóstico inicial</span>
+        </div>
+        <div class="stat reveal">
+          <strong>1 a 2 h</strong>
+          <span>Tiempo estimado de mantenimiento</span>
+        </div>
+        <div class="stat reveal">
+          <strong>Trujillo</strong>
+          <span>Atención local y remota</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="servicios" class="section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Servicios</p>
+          <h2>Soporte técnico pensado para estudiantes, trabajadores y negocios.</h2>
+          <p>Servicios claros, cotización directa por WhatsApp y orientación según el estado real de tu equipo.</p>
+        </div>
+
+        <div class="cards-grid services-grid">
+          <article class="service-card reveal">
+            <span class="icon">🧹</span>
+            <h3>Mantenimiento preventivo</h3>
+            <p>Limpieza, revisión interna, optimización y cuidado del equipo para mejorar rendimiento y temperatura.</p>
+          </article>
+          <article class="service-card reveal">
+            <span class="icon">🧩</span>
+            <h3>Ensamblaje de PC</h3>
+            <p>Armado de computadoras según necesidad, presupuesto y compatibilidad de componentes.</p>
+          </article>
+          <article class="service-card reveal">
+            <span class="icon">🔎</span>
+            <h3>Diagnóstico de fallas</h3>
+            <p>Revisión de problemas de encendido, lentitud, errores de sistema, temperatura o fallas de hardware.</p>
+          </article>
+          <article class="service-card reveal">
+            <span class="icon">💿</span>
+            <h3>Windows y Office</h3>
+            <p>Instalación y configuración básica del sistema operativo y herramientas esenciales de trabajo.</p>
+          </article>
+          <article class="service-card reveal">
+            <span class="icon">🛡️</span>
+            <h3>Backup de información</h3>
+            <p>Respaldo de archivos importantes antes de mantenimiento, formateo o cambio de disco.</p>
+          </article>
+          <article class="service-card reveal">
+            <span class="icon">⚡</span>
+            <h3>SSD, RAM y upgrades</h3>
+            <p>Instalación o venta de componentes para mejorar velocidad, almacenamiento y rendimiento.</p>
+          </article>
+          <article class="service-card reveal">
+            <span class="icon">🧑‍💻</span>
+            <h3>Soporte remoto o a domicilio</h3>
+            <p>Atención directa para resolver consultas, configuraciones y problemas técnicos según disponibilidad.</p>
+          </article>
+          <article class="service-card reveal">
+            <span class="icon">💻</span>
+            <h3>Venta de laptops y otros</h3>
+            <p>Venta de equipos, accesorios y productos tecnológicos según disponibilidad y evaluación.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="promociones" class="section section-alt">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Promociones y productos</p>
+          <h2>Precios iniciales y servicios bajo evaluación.</h2>
+          <p>Los precios pueden variar según el estado del equipo, dificultad del servicio y requerimiento del cliente.</p>
+        </div>
+
+        <div class="pricing-grid">
+          <article class="price-card featured reveal">
+            <div class="tag">Más solicitado</div>
+            <h3>Mantenimiento preventivo</h3>
+            <p>Limpieza, revisión y optimización para laptop o PC.</p>
+            <strong class="price">Desde S/ 60</strong>
+            <a class="btn btn-primary btn-full" href="https://wa.me/51916074052?text=Hola%20TecnoServWJ%2C%20quiero%20cotizar%20un%20mantenimiento%20preventivo." target="_blank" rel="noopener">Solicitar cotización</a>
+          </article>
+
+          <article class="price-card reveal">
+            <h3>Instalación de Windows</h3>
+            <p>Instalación y configuración inicial del sistema.</p>
+            <strong class="price">Desde S/ 40</strong>
+            <a class="btn btn-secondary btn-full" href="https://wa.me/51916074052?text=Hola%20TecnoServWJ%2C%20quiero%20cotizar%20instalaci%C3%B3n%20de%20Windows." target="_blank" rel="noopener">Consultar</a>
+          </article>
+
+          <article class="price-card reveal">
+            <h3>Backup de información</h3>
+            <p>Respaldo de archivos personales o de trabajo.</p>
+            <strong class="price">Desde S/ 50</strong>
+            <a class="btn btn-secondary btn-full" href="https://wa.me/51916074052?text=Hola%20TecnoServWJ%2C%20quiero%20cotizar%20un%20backup%20de%20informaci%C3%B3n." target="_blank" rel="noopener">Consultar</a>
+          </article>
+
+          <article class="price-card reveal">
+            <h3>Instalación SSD/RAM</h3>
+            <p>Puede ser gratis dentro de ensamblaje o paquete completo de upgrade.</p>
+            <strong class="price">Desde S/ 20</strong>
+            <a class="btn btn-secondary btn-full" href="https://wa.me/51916074052?text=Hola%20TecnoServWJ%2C%20quiero%20cotizar%20instalaci%C3%B3n%20de%20SSD%20o%20RAM." target="_blank" rel="noopener">Consultar</a>
+          </article>
+
+          <article class="price-card reveal">
+            <h3>Diagnóstico</h3>
+            <p>Revisión inicial para conocer el problema del equipo.</p>
+            <strong class="price">Gratis</strong>
+            <a class="btn btn-secondary btn-full" href="https://wa.me/51916074052?text=Hola%20TecnoServWJ%2C%20necesito%20un%20diagn%C3%B3stico%20para%20mi%20equipo." target="_blank" rel="noopener">Solicitar diagnóstico</a>
+          </article>
+
+          <article class="price-card reveal">
+            <h3>Otros servicios</h3>
+            <p>Venta de laptops, programas, ensamblaje, soporte extendido y más.</p>
+            <strong class="price">Según evaluación</strong>
+            <a class="btn btn-secondary btn-full" href="https://wa.me/51916074052?text=Hola%20TecnoServWJ%2C%20quiero%20consultar%20por%20otro%20servicio." target="_blank" rel="noopener">Cotiza por WhatsApp</a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+    <section id="trabajos" class="section">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Trabajos realizados</p>
+          <h2>Ejemplos de servicios que puedes solicitar.</h2>
+          <p>Estas imágenes son referenciales. Luego puedes reemplazarlas por fotos reales de tus trabajos.</p>
+        </div>
+
+        <div class="work-grid">
+          <article class="work-card reveal">
+            <div class="work-visual laptop-cleaning"></div>
+            <h3>Limpieza interna de laptop</h3>
+            <p>Retiro de polvo, revisión de ventilación y mejora de temperatura.</p>
+          </article>
+          <article class="work-card reveal">
+            <div class="work-visual ssd-upgrade"></div>
+            <h3>Upgrade con SSD</h3>
+            <p>Mejora de velocidad de arranque, apertura de programas y rendimiento general.</p>
+          </article>
+          <article class="work-card reveal">
+            <div class="work-visual pc-build"></div>
+            <h3>Ensamblaje de PC</h3>
+            <p>Armado ordenado, revisión de compatibilidad y configuración inicial.</p>
+          </article>
+          <article class="work-card reveal">
+            <div class="work-visual remote-support"></div>
+            <h3>Soporte remoto</h3>
+            <p>Orientación, configuración y solución de problemas según el caso.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="section section-alt">
+      <div class="container">
+        <div class="section-heading reveal">
+          <p class="eyebrow">Preguntas frecuentes</p>
+          <h2>Resuelve tus dudas antes de solicitar un servicio.</h2>
+        </div>
+
+        <div class="faq-list">
+          <details class="faq-item reveal">
+            <summary>¿Cuánto demora un mantenimiento?</summary>
+            <p>Normalmente entre 1 y 2 horas, dependiendo del equipo y del trabajo requerido. En algunos casos puede tomar menos tiempo.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>¿Realizas backup de información?</summary>
+            <p>Sí. Se puede realizar respaldo de información importante antes del mantenimiento, formateo o cambio de disco.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>¿Instalas Windows y Office?</summary>
+            <p>Sí. Se realiza instalación y configuración básica según la necesidad del cliente.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>¿Atiendes a domicilio o remoto?</summary>
+            <p>Sí. La atención puede ser a domicilio, por delivery o de forma remota, según el tipo de servicio y disponibilidad.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>¿El diagnóstico tiene costo?</summary>
+            <p>El diagnóstico inicial es gratis. Si el servicio requiere una revisión más específica o intervención avanzada, se informa antes de continuar.</p>
+          </details>
+          <details class="faq-item reveal">
+            <summary>¿Brindas garantía o seguimiento?</summary>
+            <p>Sí. Se puede brindar garantía según el tipo de servicio realizado, además de seguimiento, respuestas a consultas y soporte extendido si se contrata.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="contacto" class="section contact-section">
+      <div class="container contact-grid">
+        <div class="contact-content reveal">
+          <p class="eyebrow">Contacto</p>
+          <h2>Solicita una cotización o consulta técnica.</h2>
+          <p>El canal principal de atención es WhatsApp. Describe tu problema, modelo del equipo y el servicio que necesitas para recibir una orientación más rápida.</p>
+
+          <div class="contact-list">
+            <p><strong>WhatsApp:</strong> 916 074 052</p>
+            <p><strong>Correo:</strong> tecnoserv.wj@outlook.com</p>
+            <p><strong>Horario:</strong> Lunes a viernes, 9:00 am - 11:00 pm</p>
+            <p><strong>Sábados:</strong> 9:00 am - 2:00 pm</p>
+            <p><strong>Domingos:</strong> según disponibilidad. De no atenderse, se prioriza el pedido el lunes.</p>
+            <p><strong>Zona:</strong> Trujillo y La Esperanza</p>
+            <p><strong>Modalidad:</strong> remoto, delivery y a domicilio</p>
+          </div>
+        </div>
+
+        <form class="contact-form reveal" id="quoteForm">
+          <h3>Mensaje rápido</h3>
+          <label for="name">Nombre</label>
+          <input id="name" name="name" type="text" placeholder="Tu nombre" />
+
+          <label for="service">Servicio requerido</label>
+          <select id="service" name="service">
+            <option value="Mantenimiento preventivo">Mantenimiento preventivo</option>
+            <option value="Diagnóstico de fallas">Diagnóstico de fallas</option>
+            <option value="Instalación de Windows">Instalación de Windows</option>
+            <option value="Backup de información">Backup de información</option>
+            <option value="Instalación SSD/RAM">Instalación SSD/RAM</option>
+            <option value="Ensamblaje de PC">Ensamblaje de PC</option>
+            <option value="Soporte remoto">Soporte remoto</option>
+            <option value="Otro servicio">Otro servicio</option>
+          </select>
+
+          <label for="message">Detalle</label>
+          <textarea id="message" name="message" rows="4" placeholder="Ejemplo: mi laptop está lenta, deseo mantenimiento y revisión."></textarea>
+
+          <button class="btn btn-primary btn-full" type="submit">Enviar por WhatsApp</button>
+          <p class="form-note">No se guarda información en la web. El mensaje se abre directamente en WhatsApp.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div>
+        <strong>TecnoServWJ</strong>
+        <p>Cuidamos tu tecnología como parte de tu trabajo.</p>
+      </div>
+      <p>© <span id="year"></span> TecnoServWJ. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <a class="floating-whatsapp" href="https://wa.me/51916074052?text=Hola%20TecnoServWJ%2C%20quiero%20cotizar%20un%20servicio." target="_blank" rel="noopener" aria-label="WhatsApp TecnoServWJ">
+    WhatsApp
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>

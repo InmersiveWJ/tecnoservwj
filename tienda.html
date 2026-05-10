@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tienda TecnoServWJ | Laptops, soporte y upgrades</title>
-  <meta name="description" content="Tienda TecnoServWJ. Venta de laptops, productos tecnológicos y servicios técnicos en Trujillo y La Esperanza." />
+  <title>Tienda TecnoServWJ | Laptops y productos tecnológicos</title>
+  <meta name="description" content="Tienda TecnoServWJ. Venta de laptops y productos tecnológicos en Trujillo y La Esperanza." />
   <meta name="theme-color" content="#0b0b0f" />
   <link rel="icon" href="assets/favicon.png" />
   <link rel="stylesheet" href="styles.css" />
@@ -17,72 +17,31 @@
         <span>WhatsApp: 916 074 052</span>
       </div>
     </div>
-
     <nav class="retail-nav container">
       <a class="retail-brand" href="index.html">
         <img src="assets/logo-fondo-negro.png" alt="Logo TecnoServWJ" />
-        <div>
-          <strong>TecnoServWJ</strong>
-          <small>Tienda tecnológica</small>
-        </div>
+        <div><strong>TecnoServWJ</strong><small>Tienda tecnológica</small></div>
       </a>
-
       <form class="retail-search" id="searchForm">
-        <input type="search" id="searchInput" placeholder="Buscar laptop, marca, procesador..." aria-label="Buscar producto" />
+        <input type="search" id="searchInput" placeholder="Buscar laptop, marca, procesador..." />
         <button type="submit">Buscar</button>
       </form>
-
       <div class="retail-actions">
         <a href="index.html">Inicio</a>
         <a href="index.html#servicios">Servicios</a>
         <a href="index.html#contacto">Contacto</a>
-        <button class="cart-button" type="button" onclick="openCartPanel()">🛒 <span id="cartCount">0</span></button>
       </div>
-
-      <button class="menu-toggle retail-menu-toggle" id="menuToggle" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
-      </button>
     </nav>
-
-    <div class="retail-mobile-menu" id="navLinks">
-      <a href="index.html">Inicio</a>
-      <a href="index.html#servicios">Servicios</a>
-      <a href="index.html#promociones">Promociones</a>
-      <a href="index.html#contacto">Contacto</a>
-    </div>
   </header>
 
   <main>
-    <section class="retail-hero">
-      <div class="container retail-hero-grid">
-        <div class="retail-hero-content">
-          <p class="retail-kicker">Oferta destacada</p>
-          <h1>Asus Gaming V16 RTX 3050</h1>
-          <p>Intel Core 5 210H, RTX 3050 6GB, 8GB RAM, 512GB SSD, pantalla 16” WUXGA 144Hz. Ideal para estudio, trabajo, diseño ligero y gaming casual.</p>
-          <div class="retail-hero-price">
-            <strong>S/ 3,449</strong>
-            <span>S/ 3,999</span>
-          </div>
-          <div class="retail-hero-buttons">
-            <button class="btn btn-primary" type="button" onclick="openProductDetail('laptop-asus-gaming-v16-rtx3050')">Ver detalles</button>
-            <a class="btn btn-secondary" href="https://wa.me/51916074052?text=Hola%20TecnoServWJ%2C%20quiero%20consultar%20por%20la%20Laptop%20Asus%20Gaming%20V16%20RTX%203050." target="_blank" rel="noopener">Consultar</a>
-          </div>
-        </div>
-
-        <div class="retail-hero-product">
-          <img src="assets/productos/asus-v16-rtx3050-principal.svg" alt="Asus Gaming V16 RTX 3050" />
-          <div class="retail-hero-badge">Stock: 1 unidad</div>
-        </div>
+    <section class="retail-store-head container">
+      <div>
+        <p class="retail-kicker">Catálogo</p>
+        <h1>Laptops y productos destacados</h1>
+        <p>Selecciona un producto para ver su ficha completa, precio, stock, métodos de pago, garantía, fotos y especificaciones técnicas.</p>
       </div>
-    </section>
-
-    <section class="retail-benefits">
-      <div class="container retail-benefits-grid">
-        <article><strong>Diagnóstico gratis</strong><span>Orientación inicial antes de comprar o reparar.</span></article>
-        <article><strong>Pago coordinado</strong><span>Yape, Plin, transferencia o efectivo.</span></article>
-        <article><strong>Revisión previa</strong><span>Equipos revisados antes de la entrega.</span></article>
-        <article><strong>Soporte postventa</strong><span>Consultas y seguimiento por WhatsApp.</span></article>
-      </div>
+      <a class="btn btn-primary" href="https://wa.me/51916074052?text=Hola%20TecnoServWJ%2C%20quiero%20asesor%C3%ADa%20para%20comprar%20una%20laptop." target="_blank" rel="noopener">Pedir asesoría</a>
     </section>
 
     <section class="retail-layout container" id="catalogo">
@@ -95,14 +54,12 @@
           <button class="filter-pill" data-filter="oferta">Ofertas</button>
           <button class="filter-pill" data-filter="stock">En stock</button>
         </div>
-
         <div class="filter-card">
           <h3>Condición</h3>
           <label><input type="checkbox" class="state-filter" value="Nuevo"> Nuevo</label>
           <label><input type="checkbox" class="state-filter" value="Usado"> Usado</label>
           <label><input type="checkbox" class="state-filter" value="Bajo pedido"> Bajo pedido</label>
         </div>
-
         <div class="filter-card">
           <h3>Ordenar</h3>
           <select id="sortSelect">
@@ -116,65 +73,23 @@
 
       <section class="retail-catalog">
         <div class="catalog-head">
-          <div>
-            <p class="retail-kicker">Catálogo</p>
-            <h2>Laptops y productos destacados</h2>
-          </div>
+          <div><p class="retail-kicker">Tienda</p><h2>Productos disponibles</h2></div>
           <p id="productCounter">0 productos</p>
         </div>
-
         <div class="retail-products" id="productGrid"></div>
       </section>
     </section>
-
-    <section class="retail-info container">
-      <div>
-        <h2>Compra con asesoría técnica</h2>
-        <p>Antes de comprar, puedes consultar por WhatsApp para validar si el equipo se ajusta a tus estudios, trabajo, programas, juegos o presupuesto.</p>
-      </div>
-      <a class="btn btn-primary" href="https://wa.me/51916074052?text=Hola%20TecnoServWJ%2C%20quiero%20asesor%C3%ADa%20para%20comprar%20una%20laptop." target="_blank" rel="noopener">Pedir asesoría</a>
-    </section>
   </main>
-
-  <div class="product-modal" id="productModal" aria-hidden="true">
-    <div class="product-modal-backdrop" data-close-modal></div>
-    <article class="product-modal-card retail-modal-card" role="dialog" aria-modal="true" aria-label="Detalle del producto">
-      <button class="modal-close" type="button" data-close-modal aria-label="Cerrar detalle">×</button>
-      <div id="productModalContent"></div>
-    </article>
-  </div>
-
-  <aside class="cart-panel" id="cartPanel" aria-hidden="true">
-    <div class="cart-panel-header">
-      <h3>Consulta de productos</h3>
-      <button type="button" onclick="closeCartPanel()">×</button>
-    </div>
-    <div id="cartItems" class="cart-items"></div>
-    <div class="cart-panel-footer">
-      <p>Esta web no procesa pagos. El carrito arma una consulta por WhatsApp.</p>
-      <a class="btn btn-primary btn-full" id="cartWhatsapp" href="#" target="_blank" rel="noopener">Consultar por WhatsApp</a>
-    </div>
-  </aside>
 
   <footer class="retail-footer">
     <div class="container retail-footer-grid">
-      <div>
-        <strong>TecnoServWJ</strong>
-        <p>Cuidamos tu tecnología como parte de tu trabajo.</p>
-      </div>
-      <div>
-        <strong>Atención</strong>
-        <p>Lunes a viernes: 9:00 am - 11:00 pm<br>Sábados: 9:00 am - 2:00 pm</p>
-      </div>
-      <div>
-        <strong>Contacto</strong>
-        <p>WhatsApp: 916 074 052<br>Correo: tecnoserv.wj@outlook.com</p>
-      </div>
+      <div><strong>TecnoServWJ</strong><p>Cuidamos tu tecnología como parte de tu trabajo.</p></div>
+      <div><strong>Atención</strong><p>Lunes a viernes: 9:00 am - 11:00 pm<br>Sábados: 9:00 am - 2:00 pm</p></div>
+      <div><strong>Contacto</strong><p>WhatsApp: 916 074 052<br>Correo: tecnoserv.wj@outlook.com</p></div>
     </div>
   </footer>
 
   <a class="floating-whatsapp" href="https://wa.me/51916074052?text=Hola%20TecnoServWJ%2C%20quiero%20consultar%20por%20la%20tienda." target="_blank" rel="noopener">WhatsApp</a>
-
   <script src="productos.js"></script>
   <script src="script.js"></script>
 </body>
